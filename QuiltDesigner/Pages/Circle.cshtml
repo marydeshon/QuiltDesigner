@@ -1,0 +1,44 @@
+@page
+@model QuiltDesigner.Pages.Circle
+
+@* <h3>Circle Size</h3> *@
+@* <div> *@
+@*     <form method="post"> *@
+@*         <input asp-for="Radius" class="form-control"/> *@
+@*         <button type="submit" class="btn bn-sm btn-primary">Flash</button> *@
+@*     </form> *@
+@* </div> *@
+@* <svg height="@(Model.Radius*2)" width="@(Model.Radius*2)"> *@
+@*     <circle cx="@Model.Radius" cy="@Model.Radius" r="@(Model.Radius*0.8)" stroke="black" stroke-width="@(Model.Radius *0.05)" fill="@Model.Color" /> *@
+@*     <text x="50%" y="50%" text-anchor="middle" alignment-baseline="central" fill="#fff" font-size="@(Model.Radius*0.6)px">@Model.Radius</text> *@
+@* </svg> *@
+
+    <!-- Example of a polygon with the default fill -->
+    @* <polygon points="0,0 0,100 50,0" fill="red"/> *@
+    @* <polygon points="0,100 50,25 50,75 100,0" /> *@
+
+    <!-- Example of the same polygon shape with stroke and no fill -->
+    @* <polygon points="100,100 150,25 150,75 200,0" fill="none" stroke="black" /> *@
+@* *@
+@* *@
+@* <svg> *@
+@*     <defs> *@
+@*         <pattern id="pattern1" height="100%" width="100%" patternContentUnits="objectBoundingBox"> *@
+@*             <image height="1" width="1" preserveAspectRatio="none" xlink:href="http://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Gl%C3%BChwendel_brennt_durch.jpg/399px-Gl%C3%BChwendel_brennt_durch.jpg" /> *@
+@*         </pattern> *@
+@*     </defs> *@
+@* *@
+@*     <polygon style="stroke: #999DA3;" fill="url(#pattern1)" points="50 1 95 25 95 75 50 99 5 75 5 25"/> *@
+@* </svg> *@
+
+@* <svg><polygon points="0 0 0 100 100 0" fill="red"/></svg> *@
+@* <svg><path        d="M20,20 100,20 100,100 30,110z" fill="green" transform="translate(100,0)"/></svg> *@
+
+<svg width='800' height='800'>
+    @foreach (var tri in Model.triangles)
+    {
+        <polygon points="@tri.pts[0] @tri.pts[1] @tri.pts[2] @tri.pts[3] @tri.pts[4] @tri.pts[5]" fill="@tri.Color"/>
+    }
+</svg>
+
+
