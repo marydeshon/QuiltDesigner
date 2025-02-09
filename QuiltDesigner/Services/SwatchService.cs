@@ -6,11 +6,11 @@ public class SwatchService :ISwatchService
     public List<Swatch> GetAll()
     {
         List<Swatch> swatches = new List<Swatch>{
-            new Swatch{Id = 1, Pattern="img1"},
-            new Swatch{Id = 2, Pattern="img2"},
-            new Swatch{Id = 3, Pattern="img1"},
-            new Swatch{Id = 4, Pattern="img2"},
-            new Swatch{Id = 5, Pattern="img1"},
+            new Swatch{Id = 1, ImageName="img1.jpg"},
+            new Swatch{Id = 2, ImageName="img2.jpg"},
+            new Swatch{Id = 3, ImageName="img1.jpg"},
+            new Swatch{Id = 4, ImageName="img2.jpg"},
+            new Swatch{Id = 5, ImageName="img1.jpg"},
         };
         return swatches;
     }
