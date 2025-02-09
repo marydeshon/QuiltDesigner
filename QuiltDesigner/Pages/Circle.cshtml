@@ -12,29 +12,53 @@
 @*     <circle cx="@Model.Radius" cy="@Model.Radius" r="@(Model.Radius*0.8)" stroke="black" stroke-width="@(Model.Radius *0.05)" fill="@Model.Color" /> *@
 @*     <text x="50%" y="50%" text-anchor="middle" alignment-baseline="central" fill="#fff" font-size="@(Model.Radius*0.6)px">@Model.Radius</text> *@
 @* </svg> *@
-
+<div>
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" asp-for="Upload" />
+        <input type="submit" />
+    </form>
+</div>
 <div style="width:1770px">
-
     <svg width="840" height="800" id="svg1">
-        @foreach (var tri in Model.triangles)
-        {
-            <polygon points="@tri.pts[0] @tri.pts[1] @tri.pts[2] @tri.pts[3] @tri.pts[4] @tri.pts[5]" fill="@tri.Color"/>
-        }
-    </svg>
-    <svg width="200" height="800" id="svg2">
         <defs>
             <pattern id="ptrn1" height="100%" width="100%" patternContentUnits="objectBoundingBox">
-                <image height="1" width="1" preserveAspectRatio="none" xlink:href="/images/img1.jpg"/>
+                <image height="1" width="1" preserveAspectRatio="none" xlink:href="/images/swatches/img1.jpg"/>
             </pattern>
             <pattern id="ptrn2" height="100%" width="100%" patternContentUnits="objectBoundingBox">
                 <image height="1" width="1" preserveAspectRatio="none" xlink:href="/images/swatches/img2.jpg"/>
             </pattern>
         </defs>
-        <polygon style="stroke: #999DA3;" fill="url(#ptrn1)" points="50 1 95 25 95 75 50 99 5 75 5 25"/>
-        <path d="M50,1 95,25 95,75 50,99,5,75,5, 25z" style="stroke: #999DA3;" fill="url(#ptrn2)" transform="translate(0,100)"/>
-
+        @foreach (var tri in Model.triangles)
+        {
+            <polygon points="@tri.pts[0] @tri.pts[1] @tri.pts[2] @tri.pts[3] @tri.pts[4] @tri.pts[5]" fill="@tri.Color"/>
+        }
+        @* <g transform="translate(700,0)"> *@
+        @*     <polygon style="stroke: #999DA3;" fill="url(#ptrn1)" points="50 1 95 25 95 75 50 99 5 75 5 25"/> *@
+        @*     <path d="M50,1 95,25 95,75 50,99,5,75,5, 25z" style="stroke: #999DA3;" fill="url(#ptrn2)" transform="translate(0,100)"/> *@
+        @* </g> *@
+        <g transform="translate(640,0)">
+            <rect style="stroke: #999DA3;" fill="url(#ptrn1)" x="0" y="0" width="90" height="90"/>
+            <rect style="stroke: #999DA3;" fill="url(#ptrn2)" x="0" y="110" width="90" height="90"/>
+        </g>
     </svg>
-
 </div>
+@section scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            window.addEventListener("mouseup", (e) => {
+                // Let's pick a random color between #000000 and #FFFFFF
+                const color = Math.round(Math.random() * 0xffffff);
+
+                // Let's format the color to fit CSS requirements
+                const fill = `#${color.toString(16).padStart(6, "0")}`;
+
+                // Let's apply our color in the
+                // element we actually clicked on
+                e.target.style.fill = "url(#ptrn2)";
+            });
+        });
+    </script>
+}
 
 

@@ -1,0 +1,15 @@
+@page
+@model QuiltDesigner.Pages.AjaxPartialModel
+
+<h2>Ajax</h2>
+<p><button class="btn btn-primary" id="load">Load</button></p>
+<div id="grid"></div>
+@section scripts{
+    <script>
+        $(function () {
+            $('#load').on('click', function () {
+                $('#grid').load('/ajaxpartial?handler=SwatchPartial');
+            });
+        });
+    </script>
+}

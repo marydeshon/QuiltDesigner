@@ -1,0 +1,10 @@
+@model List<QuiltDesigner.Models.Swatch>
+<table class="table table-striped">
+    @foreach(var swatch in Model)
+    {
+        <tr>
+            <td>@swatch.Id</td>
+            <td>@swatch.Pattern</td>
+        </tr>
+    }
+</table>

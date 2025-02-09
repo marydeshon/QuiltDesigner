@@ -2,11 +2,19 @@ using System.Drawing;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Routing.Tree;
+using Microsoft.AspNetCore.Hosting;
 
 namespace QuiltDesigner.Pages;
 
 public class Circle : PageModel
 {
+    private Microsoft.AspNetCore.Hosting.IWebHostEnvironment _environment;
+    public Circle(Microsoft.AspNetCore.Hosting.IWebHostEnvironment environment)
+    {
+        _environment = environment;
+    }
+    [BindProperty]
+    public IFormFile Upload { get; set; }
     public List<Triangle> triangles { get; set; } = new List<Triangle>();
     
     [BindProperty]
@@ -44,11 +52,20 @@ public class Circle : PageModel
         }
     }
     
-    public async Task<IActionResult> OnPostAsync()
+    // public async Task<IActionResult> OnPostAsync()
+    // {
+    //     var random = new Random();
+    //     Color = String.Format("#{0:X6}", random.Next(0x1000000));
+    //     return Page();
+    // }
+    
+    public async Task OnPostAsync()
     {
-        var random = new Random();
-        Color = String.Format("#{0:X6}", random.Next(0x1000000));
-        return Page();
+        var file = Path.Combine(_environment.ContentRootPath, "wwwroot/images/swatches", Upload.FileName);
+        using (var fileStream = new FileStream(file, FileMode.Create))
+        {
+            await Upload.CopyToAsync(fileStream);
+        }
     }
 }
 

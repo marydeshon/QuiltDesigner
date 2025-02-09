@@ -1,0 +1,44 @@
+@page
+@model QuiltDesigner.Pages.Winchester
+
+
+@* <div style="width: 100%; overflow: hidden;"> *@
+@*     <div style="width: 600px; float: left;"> *@
+@*         <svg height="@(Model.Radius*2)" width="@(Model.Radius*2)"> *@
+@*             <circle cx="@Model.Radius" cy="@Model.Radius" r="@(Model.Radius*0.8)" stroke="black" stroke-width="@(Model.Radius *0.05)" fill="@Model.Color" /> *@
+@*             <text x="50%" y="50%" text-anchor="middle" alignment-baseline="central" fill="#fff" font-size="@(Model.Radius*0.6)px">@Model.Radius</text> *@
+@*         </svg>   *@
+@*     </div> *@
+@*     <div style="margin-left: 620px;"> *@
+@*         <p><button class="btn btn-primary" id="load">Load</button></p> *@
+@*         <div id="grid"></div> *@
+@*     </div> *@
+@* </div> *@
+
+<div class="container">
+    <div class="fixed">
+        <svg height="@(Model.Radius*2)" width="@(Model.Radius*2)">
+            <circle cx="@Model.Radius" cy="@Model.Radius" r="@(Model.Radius*0.8)" stroke="black" stroke-width="@(Model.Radius *0.05)" fill="@Model.Color" />
+            <text x="50%" y="50%" text-anchor="middle" alignment-baseline="central" fill="#fff" font-size="@(Model.Radius*0.6)px">@Model.Radius</text>
+        </svg>
+    </div>
+    <div class="flex-item">
+        <p><button class="btn btn-primary" id="load">Load</button></p>
+        <div id="grid"></div>
+    </div>
+</div>
+
+
+@section scripts {
+    <script>
+        document.getElementById('load').addEventListener('click', () => {
+            fetch('/ajaxpartial?handler=SwatchPartial')
+                .then((response) => {
+                    return response.text();
+                })
+                .then((result) => {
+                    document.getElementById('grid').innerHTML = result;
+                });
+        });
+    </script>
+}
