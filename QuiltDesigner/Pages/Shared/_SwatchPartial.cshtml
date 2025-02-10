@@ -13,12 +13,7 @@
     @foreach (var swatch in Model)
     {
         <div class="col-3 p-1">
-            <div class="card h-100">
-                <img src="/images/swatches/@swatch.ImageName" class="img-fluid card-img-top" alt="alt" />
-                <div class="card-body">
-                    <h5 class="card-title">@swatch.Id</h5>
-                </div>
-            </div>
+                <img src="/images/swatches/@swatch.ImageName" style="height: 111px; width: 115px;" />
         </div>
     }
 </div>

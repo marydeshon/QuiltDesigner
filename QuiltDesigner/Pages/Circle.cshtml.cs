@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Routing.Tree;
 using Microsoft.AspNetCore.Hosting;
+using QuiltDesigner.Models;
 
 namespace QuiltDesigner.Pages;
 
@@ -16,6 +17,7 @@ public class Circle : PageModel
     [BindProperty]
     public IFormFile Upload { get; set; }
     public List<Triangle> triangles { get; set; } = new List<Triangle>();
+    public List<string> swatchfilenames { get; set; } = new List<string>();
     
     [BindProperty]
     public int Radius {get; set;} = 100;
@@ -50,6 +52,13 @@ public class Circle : PageModel
                 triangles.Add(new Triangle(i*Ln+Ln, brow*Ln+Ln, i*Ln+Ln, brow*Ln, i*Ln, brow*Ln+Ln,darks[a][t*2+1]));
             }
         }
+
+        string tmpPath = Path.Combine(_environment.WebRootPath, "images", "swatches");
+        DirectoryInfo directory = new DirectoryInfo(tmpPath);
+        FileInfo[] files = directory.GetFiles();
+        var notHidden = files.Where(f => !f.Attributes.HasFlag(FileAttributes.Hidden));
+        foreach (var fi in notHidden)
+            swatchfilenames.Add(fi.Name);
     }
     
     // public async Task<IActionResult> OnPostAsync()
