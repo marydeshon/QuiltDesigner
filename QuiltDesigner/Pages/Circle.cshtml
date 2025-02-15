@@ -34,10 +34,42 @@
         </g>
     </svg>
 </div>
+
+<div class="container">
+    <div class="fixed">
+        <svg width="840" height="800" id="svg2">
+            <defs>
+                @foreach (var fn in Model.swatchfilenames)
+                {
+                    <pattern id="@fn" height="100%" width="100%" patternContentUnits="objectBoundingBox">
+                        <image height="1" width="1" preserveAspectRatio="none" xlink:href="/images/swatches/@fn"/>
+                    </pattern>
+                }
+            </defs>
+            @foreach (var tri in Model.triangles)
+            {
+                <polygon points="@tri.pts[0] @tri.pts[1] @tri.pts[2] @tri.pts[3] @tri.pts[4] @tri.pts[5]" fill="@tri.Color"/>
+            }
+            </svg>
+    </div>
+    <div class="flex-item">
+        <div class="row">
+            @foreach (var swatch in Model.swatchfilenames)
+            {
+                <div class="col-3 p-1">
+                    <img id="@swatch" src="/images/swatches/@swatch" style="height: 111px; width: 115px;" />
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
 @section scripts {
     <script type="text/javascript">
         $(document).ready(function () {
             window.addEventListener("mouseup", (e) => {
+                
+                alert(e.target.id);
                 // apply pattern in the element clicked on
                 e.target.style.fill = "url(#lgt3.jpg)";
             });

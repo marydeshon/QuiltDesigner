@@ -1,19 +1,10 @@
 @model List<QuiltDesigner.Models.Swatch>
-@* <table class="table table-striped"> *@
-@*     @foreach(var swatch in Model) *@
-@*     { *@
-@*         <tr> *@
-@*             <td>@swatch.Id</td> *@
-@*             <td>@swatch.ImageName</td> *@
-@*         </tr> *@
-@*     } *@
-@* </table> *@
 
 <div class="row">
     @foreach (var swatch in Model)
     {
         <div class="col-3 p-1">
-                <img src="/images/swatches/@swatch.ImageName" style="height: 111px; width: 115px;" />
+                <img id="@swatch.ImageName" src="/images/swatches/@swatch.ImageName" style="height: 111px; width: 115px;" />
         </div>
     }
 </div>

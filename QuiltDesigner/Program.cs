@@ -13,6 +13,7 @@ public class Program
         builder.Services.AddDbContext<BakeryContext>();
         builder.Services.AddTransient<ICarService, CarService>();
         builder.Services.AddTransient<ISwatchService, SwatchService>();
+        builder.Services.AddTransient<IPatternSevice, Winchester>();
 
         var app = builder.Build();
 

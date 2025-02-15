@@ -15,6 +15,7 @@ public class AjaxPartialModel : PageModel
     public List<Swatch> Swatches { get; set; }
     public void OnGet()
     {
+        
     }
     public PartialViewResult OnGetSwatchPartial()
     {

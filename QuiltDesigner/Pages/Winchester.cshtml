@@ -1,25 +1,22 @@
 @page
 @model QuiltDesigner.Pages.Winchester
 
-
-@* <div style="width: 100%; overflow: hidden;"> *@
-@*     <div style="width: 600px; float: left;"> *@
-@*         <svg height="@(Model.Radius*2)" width="@(Model.Radius*2)"> *@
-@*             <circle cx="@Model.Radius" cy="@Model.Radius" r="@(Model.Radius*0.8)" stroke="black" stroke-width="@(Model.Radius *0.05)" fill="@Model.Color" /> *@
-@*             <text x="50%" y="50%" text-anchor="middle" alignment-baseline="central" fill="#fff" font-size="@(Model.Radius*0.6)px">@Model.Radius</text> *@
-@*         </svg>   *@
-@*     </div> *@
-@*     <div style="margin-left: 620px;"> *@
-@*         <p><button class="btn btn-primary" id="load">Load</button></p> *@
-@*         <div id="grid"></div> *@
-@*     </div> *@
-@* </div> *@
-
 <div class="container">
     <div class="fixed">
-        <svg height="@(Model.Radius*2)" width="@(Model.Radius*2)">
-            <circle cx="@Model.Radius" cy="@Model.Radius" r="@(Model.Radius*0.8)" stroke="black" stroke-width="@(Model.Radius *0.05)" fill="@Model.Color" />
-            <text x="50%" y="50%" text-anchor="middle" alignment-baseline="central" fill="#fff" font-size="@(Model.Radius*0.6)px">@Model.Radius</text>
+        <svg width="840" height="800" id="svg1">
+            <defs>
+                @foreach (var fn in Model.swatchfilenames)
+                {
+                    var tmp = "/images/swatches/@fn";
+                    <pattern id="@fn" height="100%" width="100%" patternContentUnits="objectBoundingBox">
+                        <image height="1" width="1" preserveAspectRatio="none" xlink:href="/images/swatches/@fn"/>
+                    </pattern>
+                }
+            </defs>
+            @foreach (var tri in Model.Shapes)
+            {
+                <polygon points="@String.Join(" ", tri.Points)" fill="@tri.Color"/>
+            }
         </svg>
     </div>
     <div class="flex-item">
@@ -28,8 +25,11 @@
     </div>
 </div>
 
-
 @section scripts {
+    <script>
+        var currpat = "lgt3.jpg";
+    </script>
+
     <script>
         document.getElementById('load').addEventListener('click', () => {
             fetch('/ajaxpartial?handler=SwatchPartial')
@@ -39,6 +39,18 @@
                 .then((result) => {
                     document.getElementById('grid').innerHTML = result;
                 });
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            window.addEventListener("mouseup", (e) => {
+                if (e.target.id.startsWith("lgt") || e.target.id.startsWith("drk") )
+                {
+                    currpat = e.target.id;
+                }
+                e.target.style.fill = "url(#" + currpat + ")";
+            });
         });
     </script>
 }
