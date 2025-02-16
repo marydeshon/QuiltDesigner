@@ -19,7 +19,62 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="wwwroot\images\products\" />
+      <Content Remove="Pages\Shared\_CarPartial.cshtml" />
+      <Content Remove="wwwroot\images\img1.jpg" />
+      <Content Remove="wwwroot\images\img2.jpg" />
+      <Content Remove="wwwroot\images\products\**" />
+      <Content Remove="Data\**" />
+      <Content Remove="Pages\Circle.cshtml" />
+      <Content Remove="Pages\Order.cshtml" />
+      <Content Remove="Pages\OrderSuccess.cshtml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="wwwroot\images\products\**" />
+      <Compile Remove="Data\**" />
+      <Compile Remove="Pages\Circle.cshtml.cs" />
+      <Compile Remove="Pages\Order.cshtml.cs" />
+      <Compile Remove="Pages\OrderSuccess.cshtml.cs" />
+      <Compile Remove="Services\CarService.cs" />
+      <Compile Remove="Services\ICarService.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="wwwroot\images\products\**" />
+      <EmbeddedResource Remove="Data\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="wwwroot\images\products\**" />
+      <None Remove="Data\**" />
+      <None Remove="20250125165126_CreateDatabase.sql" />
+      <None Remove="Bakery.db" />
+      <None Remove="Bakery.db-shm" />
+      <None Remove="Bakery.db-wal" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="wwwroot\images\products\bagels.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\images\products\bread.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\images\products\brownie.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\images\products\buns.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\images\products\carrot-cake.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\images\products\cheesecake.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\images\products\chocolate-cake.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\images\products\chocolate-chip.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\images\products\cinnamon-roll.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\images\products\croissant.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\images\products\cup-cakes.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\images\products\doughnuts.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\images\products\fruit-loaf.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\images\products\fruit-tart.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\images\products\lemon-meringue.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\images\products\lemon-tart.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\images\products\macaron.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\images\products\pain-au-chocolate.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\images\products\pasty.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\images\products\peanut-butter-cookie.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\images\products\sliced-bread.jpg" />
     </ItemGroup>
 
 </Project>

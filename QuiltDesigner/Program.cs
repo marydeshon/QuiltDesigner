@@ -1,4 +1,3 @@
-using QuiltDesigner.Data;
 using QuiltDesigner.Services;
 
 namespace QuiltDesigner;
@@ -10,8 +9,6 @@ public class Program
 
         // Add services to the container.
         builder.Services.AddRazorPages();
-        builder.Services.AddDbContext<BakeryContext>();
-        builder.Services.AddTransient<ICarService, CarService>();
         builder.Services.AddTransient<ISwatchService, SwatchService>();
         builder.Services.AddTransient<IPatternSevice, Winchester>();
 
