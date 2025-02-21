@@ -37,6 +37,7 @@
       <Compile Remove="Pages\OrderSuccess.cshtml.cs" />
       <Compile Remove="Services\CarService.cs" />
       <Compile Remove="Services\ICarService.cs" />
+      <Compile Remove="Models\Car.cs" />
     </ItemGroup>
 
     <ItemGroup>

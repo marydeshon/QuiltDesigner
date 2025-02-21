@@ -7,7 +7,6 @@
             <defs>
                 @foreach (var fn in Model.swatchfilenames)
                 {
-                    var tmp = "/images/swatches/@fn";
                     <pattern id="@fn" height="100%" width="100%" patternContentUnits="objectBoundingBox">
                         <image height="1" width="1" preserveAspectRatio="none" xlink:href="/images/swatches/@fn"/>
                     </pattern>
@@ -20,18 +19,18 @@
         </svg>
     </div>
     <div class="flex-item">
-        <p><button class="btn btn-primary" id="load">Load</button></p>
+        @* <p><button class="btn btn-primary" id="load">Load</button></p> *@
         <div id="grid"></div>
     </div>
 </div>
 
 @section scripts {
-    <script>
+    <script type="text/javascript">
         var currpat = "lgt3.jpg";
     </script>
 
     <script>
-        document.getElementById('load').addEventListener('click', () => {
+        $(document).ready(function () {
             fetch('/ajaxpartial?handler=SwatchPartial')
                 .then((response) => {
                     return response.text();
@@ -54,3 +53,5 @@
         });
     </script>
 }
+
+@* document.getElementById('load').addEventListener('click', () => { *@
