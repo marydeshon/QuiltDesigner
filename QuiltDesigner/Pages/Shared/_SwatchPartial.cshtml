@@ -3,8 +3,6 @@
 <div class="row">
     @foreach (var swatch in Model)
     {
-        <div class="col-3 p-1">
-                <img id="@swatch.ImageName" src="/images/swatches/@swatch.ImageName" style="height: 111px; width: 115px;" />
-        </div>
+        <img id="@swatch.ImageName" src="/images/swatches/@swatch.ImageName" style="height: 100px; width: 100px;" />
     }
 </div>

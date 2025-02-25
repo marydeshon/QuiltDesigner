@@ -1,9 +1,25 @@
-.container{
+.flex-container{
     display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
 }
 .fixed{
     width: 800px;
 }
 .flex-item{
     flex-grow: 1;
+}
+
+
+.box {
+    height: auto;
+}
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    gap: 5px
+}
+.cell {
+    flex: 1 1 50vh;
 }

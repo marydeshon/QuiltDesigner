@@ -9,10 +9,12 @@ public class Winchester : PageModel
 {
     IWebHostEnvironment _environment;
     private IPatternSevice _patternService;
-    public Winchester(IWebHostEnvironment environment, IPatternSevice patternSevice)
+    private ISwatchService _swatchService;
+    public Winchester(IWebHostEnvironment environment, IPatternSevice patternSevice,ISwatchService swatchService)
     {
         _environment = environment;
         _patternService = patternSevice;
+        _swatchService = swatchService;
     }
     [BindProperty]
     public int Radius {get; set;} = 100;
@@ -20,6 +22,7 @@ public class Winchester : PageModel
 
     public List<Shape> Shapes { get; set; }
     public List<string> swatchfilenames { get; set; } = new List<string>();
+    public List<Swatch> Swatches { get; set; }
     public void OnGet()
     {
         Shapes = _patternService.GetAll();
@@ -30,5 +33,6 @@ public class Winchester : PageModel
         var notHidden = files.Where(f => !f.Attributes.HasFlag(FileAttributes.Hidden));
         foreach (var fi in notHidden)
             swatchfilenames.Add(fi.Name);
+        Swatches = _swatchService.GetAll();
     }
 }
