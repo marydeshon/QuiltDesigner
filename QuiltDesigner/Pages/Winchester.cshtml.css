@@ -17,9 +17,9 @@
 .row {
     display: flex;
     flex-direction: row;
-    flex-wrap:wrap;
+    flex-wrap: wrap;
     gap: 5px
 }
 .cell {
-    flex: 1 1 50vh;
+    flex: 1 1 45vw;
 }

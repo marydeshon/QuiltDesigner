@@ -20,9 +20,9 @@ public class Winchester : PageModel
     public int Radius {get; set;} = 100;
     public string Color { get; set; } = "#a0a";
 
-    public List<Shape> Shapes { get; set; }
+    public List<Shape> Shapes { get; set; } = new List<Shape>();
     public List<string> swatchfilenames { get; set; } = new List<string>();
-    public List<Swatch> Swatches { get; set; }
+    public List<Swatch> Swatches { get; set; } = new List<Swatch>();
     public void OnGet()
     {
         Shapes = _patternService.GetAll();

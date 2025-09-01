@@ -12,7 +12,7 @@ public class AjaxPartialModel : PageModel
     {
         _swatchService = swatchService;
     }
-    public List<Swatch> Swatches { get; set; }
+    public List<Swatch> Swatches { get; set; } = new List<Swatch>();
     public void OnGet()
     {
         

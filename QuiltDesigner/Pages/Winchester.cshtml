@@ -9,7 +9,7 @@
                 @foreach (var fn in Model.swatchfilenames)
                 {
                     <pattern id="@fn" height="100%" width="100%" patternContentUnits="objectBoundingBox">
-                        <image height="1" width="1" preserveAspectRatio="none" xlink:href="/images/swatches/@fn"/>
+                        <image height="1" width="1" preserveAspectRatio="none" xlink:href="/images/swatches2/@fn"/>
                     </pattern>
                 }
             </defs>
@@ -24,7 +24,7 @@
             <div id="grid" class="cell">
                 @foreach (var swatch in Model.Swatches)
                 {
-                    <img id="@swatch.ImageName" src="/images/swatches/@swatch.ImageName" style="height: 100px; width: 100px;" />
+                    <img id="@swatch.ImageName" src="/images/swatches2/@swatch.ImageName" style="height: 100px; width: 100px;" />
                 }
             </div>
 
