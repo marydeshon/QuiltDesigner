@@ -9,8 +9,13 @@ public class Program
 
         // Add services to the container.
         builder.Services.AddRazorPages();
+        builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
         builder.Services.AddTransient<ISwatchService, SwatchService>();
-        builder.Services.AddTransient<IPatternSevice, Winchester>();
+        // builder.Services.AddTransient<IPatternSevice, Winchester>();
+        // builder.Services.AddTransient<IPatternSevice, Rungs>();
+        
+        builder.Services.AddKeyedTransient<IPatternSevice, Winchester>("winchester");
+        builder.Services.AddKeyedTransient<IPatternSevice, Rungs>("rungs");
 
         var app = builder.Build();
 

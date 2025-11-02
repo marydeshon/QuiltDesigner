@@ -26,9 +26,21 @@
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-page="/Index">Index</a>
                     </li>
-                    <li class="nav-item">
+                    @*<li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-page="/Winchester">Winchester</a>
+                    </li>*@
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                            Pattern
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" asp-area="" asp-page="/Winchester">Winchester</a>
+                            <a class="dropdown-item" asp-area="" asp-page="/Rungs">Rungs</a>
+                            @*<div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Something else here</a>*@
+                        </div>
                     </li>
+
                 </ul>
             </div>
         </div>

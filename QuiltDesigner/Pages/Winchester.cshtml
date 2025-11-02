@@ -1,4 +1,4 @@
-@page "/"
+@page "/Winchester"
 @model QuiltDesigner.Pages.Winchester
 
 <div class="box">
@@ -6,7 +6,7 @@
     <div class="cell">
         <svg width="100%" height="100%" id="svg1" viewBox="0 0 800 800">
             <defs>
-                @foreach (var fn in Model.swatchfilenames)
+                @foreach (var fn in Model.Swatchfilenames)
                 {
                     <pattern id="@fn" height="100%" width="100%" patternContentUnits="objectBoundingBox">
                         <image height="1" width="1" preserveAspectRatio="none" xlink:href="/images/swatches2/@fn"/>
