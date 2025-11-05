@@ -1,7 +1,7 @@
 using QuiltDesigner.Models;
 namespace QuiltDesigner.Services;
 
-public class SwatchService :ISwatchService
+public class SwatchService : ISwatchService
 {
     public List<Swatch> GetAll()
     {

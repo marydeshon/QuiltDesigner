@@ -1,16 +1,32 @@
-@page
+@page "/Rungs"
 @model QuiltDesigner.Pages.Rungs
 
+<div class="box">
+    <div class="row">
+        <div class="cell">
+            <svg width="100%" height="100%" id="svg1" viewBox="0 0 800 800">
+                @* <defs> *@
+                @*     @foreach (var fn in Model.Swatchfilenames) *@
+                @*     { *@
+                @*         <pattern id="@fn" height="100%" width="100%" patternContentUnits="objectBoundingBox"> *@
+                @*             <image height="1" width="1" preserveAspectRatio="none" xlink:href="/images/swatches2/@fn"/> *@
+                @*         </pattern> *@
+                @*     } *@
+                @* </defs> *@
+                @foreach (var tri in Model.Shapes)
+                {
+                    <polygon points="@String.Join(" ", tri.Points)" fill="@tri.Color"/>
+                }
+            </svg>
+        </div>
 
-<!DOCTYPE html>
+        @* <p><button class="btn btn-primary" id="load">Load</button></p> *@
+        @* <div id="grid" class="cell"> *@
+        @*     @foreach (var swatch in Model.Swatches) *@
+        @*     { *@
+        @*         <img id="@swatch.ImageName" src="/images/swatches2/@swatch.ImageName" style="height: 100px; width: 100px;" /> *@
+        @*     } *@
+        @* </div> *@
 
-<html>
-<head>
-    <title></title>
-</head>
-<body>
-<div>
-    
+    </div>
 </div>
-</body>
-</html>

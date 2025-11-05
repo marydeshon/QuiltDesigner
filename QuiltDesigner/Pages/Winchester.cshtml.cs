@@ -8,7 +8,7 @@ namespace QuiltDesigner.Pages;
 public class Winchester(
     IWebHostEnvironment environment,
     [FromKeyedServices("winchester")] IPatternSevice patternService,
-    ISwatchService swatchService)
+    [FromKeyedServices("winchester")] ISwatchService swatchService)
     : PageModel
 {
     public List<Shape> Shapes { get; set; } = new List<Shape>();

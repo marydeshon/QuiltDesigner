@@ -12,7 +12,7 @@ public class Shape
         Points = pts;
         Color = GetColor(color);
     }
-
+    
     string GetColor(string color)
     {
         Random random = new Random();
@@ -21,10 +21,12 @@ public class Shape
         {
             rInt = random.Next(20, 90);
         }
-        else
+        else if (color.Equals("#ffffff"))
         {
             rInt = random.Next(120, 255);
         }
+        else
+            return color;
         
         return String.Format("#{0:X2}{0:X2}{0:X2}", rInt, rInt, rInt);
     }
