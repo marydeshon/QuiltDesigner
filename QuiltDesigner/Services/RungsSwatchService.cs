@@ -6,6 +6,6 @@ public class RungsSwatchService: ISwatchService
 {
     public List<Swatch> GetAll()
     {
-        throw new NotImplementedException();
+        return new List<Swatch>();
     }
 }
