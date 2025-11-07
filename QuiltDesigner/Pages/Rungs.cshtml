@@ -1,32 +1,52 @@
 @page "/Rungs"
+@using Microsoft.EntityFrameworkCore.Migrations.Operations
 @model QuiltDesigner.Pages.Rungs
 
 <div class="box">
     <div class="row">
         <div class="cell">
             <svg width="100%" height="100%" id="svg1" viewBox="0 0 800 800">
-                @* <defs> *@
-                @*     @foreach (var fn in Model.Swatchfilenames) *@
-                @*     { *@
-                @*         <pattern id="@fn" height="100%" width="100%" patternContentUnits="objectBoundingBox"> *@
-                @*             <image height="1" width="1" preserveAspectRatio="none" xlink:href="/images/swatches2/@fn"/> *@
-                @*         </pattern> *@
-                @*     } *@
-                @* </defs> *@
+                <defs>
+                    @foreach (var fn in Model.Swatchfilenames)
+                    {
+                        <pattern id="@fn" height="100%" width="100%" patternContentUnits="objectBoundingBox">
+                            <image height="1" width="1" preserveAspectRatio="none" xlink:href="/images/swatches3/@fn"/>
+                        </pattern>
+                        
+                    }
+                </defs>
+                
                 @foreach (var tri in Model.Shapes)
                 {
                     <polygon points="@String.Join(" ", tri.Points)" fill="@tri.Color"/>
                 }
             </svg>
         </div>
-
-        @* <p><button class="btn btn-primary" id="load">Load</button></p> *@
-        @* <div id="grid" class="cell"> *@
-        @*     @foreach (var swatch in Model.Swatches) *@
-        @*     { *@
-        @*         <img id="@swatch.ImageName" src="/images/swatches2/@swatch.ImageName" style="height: 100px; width: 100px;" /> *@
-        @*     } *@
-        @* </div> *@
-
+        
+        <div id="grid" class="cell">
+            @foreach (var swatch in Model.Swatches)
+            {
+                <img id="@swatch.ImageName" src="/images/swatches3/@swatch.ImageName" style="height: 100px; width: 100px;" />
+            }
+        </div>
     </div>
 </div>
+
+@section scripts {
+    <script type="text/javascript">
+        var currpat = "fab1.jpg";
+    </script>
+    
+    <script type="text/javascript">
+        $(document).ready(function () {
+            window.addEventListener("mouseup", (e) => {
+                @*alert("mouse up event: "  + e.target.id);*@
+                if (e.target.id.startsWith("fab"))
+                {
+                    currpat = e.target.id;
+                }
+                e.target.style.fill = "url(#" + currpat + ")";
+            });
+        });
+    </script>
+}
