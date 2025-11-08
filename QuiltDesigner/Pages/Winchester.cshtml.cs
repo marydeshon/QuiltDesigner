@@ -8,7 +8,7 @@ namespace QuiltDesigner.Pages;
 public class Winchester(
     IWebHostEnvironment environment,
     [FromKeyedServices("winchester")] IPatternSevice patternService,
-    [FromKeyedServices("winchester")] ISwatchService swatchService)
+    ISwatchService swatchService)
     : PageModel
 {
     public List<Shape> Shapes { get; set; } = new List<Shape>();
@@ -18,13 +18,7 @@ public class Winchester(
     public void OnGet()
     {
         Shapes = patternService.GetAll();
-        
         string tmpPath = Path.Combine(environment.WebRootPath, "images", "swatches");
-        DirectoryInfo directory = new DirectoryInfo(tmpPath);
-        FileInfo[] files = directory.GetFiles();
-        var notHidden = files.Where(f => !f.Attributes.HasFlag(FileAttributes.Hidden));
-        foreach (var fi in notHidden)
-            Swatchfilenames.Add(fi.Name);
-        Swatches = swatchService.GetAll();
+        Swatches = swatchService.GetAll(tmpPath, Swatchfilenames);
     }
 }

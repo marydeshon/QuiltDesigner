@@ -19,7 +19,7 @@ public class AjaxPartialModel : PageModel
     }
     public PartialViewResult OnGetSwatchPartial()
     {
-        Swatches = _swatchService.GetAll();
+        Swatches = _swatchService.GetAll("_SwatchPartial");
         return Partial("_SwatchPartial", Swatches);
     }
 }

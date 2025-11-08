@@ -11,8 +11,7 @@ public class Program
         builder.Services.AddRazorPages();
         builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
         
-        builder.Services.AddKeyedTransient<ISwatchService, SwatchService>("winchester");
-        builder.Services.AddKeyedTransient<ISwatchService, RungsSwatchService>("rungs");
+        builder.Services.AddTransient<ISwatchService, SwatchService>();
         builder.Services.AddKeyedTransient<IPatternSevice, Winchester>("winchester");
         builder.Services.AddKeyedTransient<IPatternSevice, Rungs>("rungs");
 

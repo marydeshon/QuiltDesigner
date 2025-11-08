@@ -28,6 +28,7 @@
       <Content Remove="Pages\Circle.cshtml" />
       <Content Remove="Pages\Order.cshtml" />
       <Content Remove="Pages\OrderSuccess.cshtml" />
+      <Content Remove="Pages\AjaxPartial.cshtml" />
     </ItemGroup>
 
     <ItemGroup>
@@ -39,6 +40,8 @@
       <Compile Remove="Services\CarService.cs" />
       <Compile Remove="Services\ICarService.cs" />
       <Compile Remove="Models\Car.cs" />
+      <Compile Remove="Services\RungsSwatchService.cs" />
+      <Compile Remove="Pages\AjaxPartial.cshtml.cs" />
     </ItemGroup>
 
     <ItemGroup>
