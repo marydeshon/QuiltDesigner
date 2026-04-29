@@ -2,35 +2,30 @@
 @using Microsoft.EntityFrameworkCore.Migrations.Operations
 @model QuiltDesigner.Pages.Rungs
 
-<div class="box">
-    <div class="row">
-        <div class="cell">
-            <svg width="100%" height="100%" id="svg1" viewBox="0 0 800 800">
-                <defs>
-                    @foreach (var fn in Model.Swatchfilenames)
-                    {
-                        <pattern id="@fn" height="100%" width="100%" patternContentUnits="objectBoundingBox">
-                            <image height="1" width="1" preserveAspectRatio="none" xlink:href="/images/swatches3/@fn"/>
-                        </pattern>
-                        
-                    }
-                </defs>
-                
-                @foreach (var tri in Model.Shapes)
+<sectionx>
+    <articlex>
+        <svg width="100%" height="100%" id="svg1" viewBox="0 0 800 800">
+            <defs>
+                @foreach (var fn in Model.Swatchfilenames)
                 {
-                    <polygon points="@String.Join(" ", tri.Points)" fill="@tri.Color"/>
+                    <pattern id="@fn" height="100%" width="100%" patternContentUnits="objectBoundingBox">
+                        <image height="1" width="1" preserveAspectRatio="none" xlink:href="/images/swatches3/@fn"/>
+                    </pattern>
                 }
-            </svg>
-        </div>
-        
-        <div id="grid" class="cell">
-            @foreach (var swatch in Model.Swatches)
+            </defs>
+            @foreach (var tri in Model.Shapes)
             {
-                <img id="@swatch.ImageName" src="/images/swatches3/@swatch.ImageName" style="height: 100px; width: 100px;" />
+                <polygon points="@String.Join(" ", tri.Points)" fill="@tri.Color"/>
             }
-        </div>
-    </div>
-</div>
+        </svg>
+    </articlex>
+    <articlex>
+        @foreach (var swatch in Model.Swatches)
+        {
+            <img id="@swatch.ImageName" src="/images/swatches3/@swatch.ImageName" style="height: 100px; width: 100px;"/>
+        }
+    </articlex>
+</sectionx>
 
 @section scripts {
     <script type="text/javascript">

@@ -10,7 +10,7 @@ public class Rungs : IPatternSevice
         {
 
         };
-        double scale = 20;
+        double scale = 30;
         double one = scale * 1;
         double one_pt_five = scale * 1.5;
         double two = scale * 2;

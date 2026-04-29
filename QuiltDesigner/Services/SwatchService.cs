@@ -6,7 +6,9 @@ public class SwatchService : ISwatchService
     public List<Swatch> GetAll(string path, List<string> swatchfilenames)
     {
         DirectoryInfo directory = new DirectoryInfo(path);
-        FileInfo[] files = directory.GetFiles();
+        FileInfo[] files = directory.GetFiles()
+            .OrderBy(f => f.Name)
+            .ToArray();
         var notHidden = files.Where(f => !f.Attributes.HasFlag(FileAttributes.Hidden));
 
         List<Swatch> swatches = new List<Swatch>();

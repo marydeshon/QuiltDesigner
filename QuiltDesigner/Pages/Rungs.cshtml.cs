@@ -12,10 +12,8 @@ public class Rungs(
 {
     public List<Shape> Shapes { get; set; } = new List<Shape>();
     public List<string> Swatchfilenames { get; set; } = new List<string>();
-    
-    public List<string> Swatchfilenames2 { get; set; } = new List<string>();
-    
     public List<Swatch> Swatches { get; set; } = new List<Swatch>();
+    public string Swatchfilepath { get; set; } = "/images/swatches3/";
     
     public void OnGet()
     {
