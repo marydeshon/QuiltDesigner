@@ -1,8 +1,0 @@
-@model List<QuiltDesigner.Models.Swatch>
-
-<div class="row">
-    @foreach (var swatch in Model)
-    {
-        <img id="@swatch.ImageName" src="/images/swatches/@swatch.ImageName" style="height: 100px; width: 100px;" />
-    }
-</div>
