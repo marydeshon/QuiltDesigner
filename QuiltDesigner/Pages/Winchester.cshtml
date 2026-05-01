@@ -19,10 +19,13 @@
         </svg>
     </articlex>
     <articlex>
-        @foreach (var swatch in Model.Swatches)
-        {
-            <img id="@swatch.ImageName" src="@(Model.Swatchfilepath + swatch.ImageName)" style="height: 100px; width: 100px;"/>
-        }
+        <!-- CSS Grid -->
+        <div class="grid-panel">
+            @foreach (var swatch in Model.Swatches)
+            {
+                <img id="@swatch.ImageName" src="@(Model.Swatchfilepath + swatch.ImageName)" class="grid-cell"/>
+            }
+        </div>
     </articlex>
 </sectionx>
 

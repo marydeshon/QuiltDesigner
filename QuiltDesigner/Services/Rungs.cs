@@ -10,7 +10,7 @@ public class Rungs : IPatternSevice
         {
 
         };
-        double scale = 30;
+        double scale = 20;
         double one = scale * 1;
         double one_pt_five = scale * 1.5;
         double two = scale * 2;
@@ -19,6 +19,9 @@ public class Rungs : IPatternSevice
         
         double[,] rowHeights = {
             {one_pt_five, one, three, five, two},// 1.5 1 3 5 2
+            {one, two, five, one_pt_five, one_pt_five},// 1 2 5 1.5 1.5
+            {one, two, five, one_pt_five, one_pt_five},// 1 2 5 1.5 1.5
+            {one, two, five, one_pt_five, one_pt_five},// 1 2 5 1.5 1.5
             {one, two, five, one_pt_five, one_pt_five},// 1 2 5 1.5 1.5
         };
 
@@ -34,13 +37,27 @@ public class Rungs : IPatternSevice
         string[] colors = [yellow, purp2, grn2, purp3, grn1,
             "#ffffff", "#000000", "#ff0000","#00ff00","#0000ff"];
         
-        string[,] colors2 = new string[10, 3] {
+        string[,] colors2 = new string[25, 3] {
             { purp3, yellow, purp2},
             { grn2, purp2, grn2},
             { purp1, grn2, purp3},
             { yellow, purp3, grn2 },
             { purp2, grn1, purp1},
-            
+            { purp1, grn2, purp3},
+            { grn1, purp3, grn2},
+            { purp2, yellow, purp1},
+            { grn1, purp2, yellow },
+            { purp1, grn2, purp3},
+            { purp1, grn2, purp3},
+            { grn1, purp3, grn2},
+            { purp2, yellow, purp1},
+            { grn1, purp2, yellow },
+            { purp1, grn2, purp3},
+            { purp1, grn2, purp3},
+            { grn1, purp3, grn2},
+            { purp2, yellow, purp1},
+            { grn1, purp2, yellow },
+            { purp1, grn2, purp3},
             { purp1, grn2, purp3},
             { grn1, purp3, grn2},
             { purp2, yellow, purp1},

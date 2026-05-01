@@ -1,29 +1,3 @@
-.flex-container{
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
-}
-.fixed{
-    width: 800px;
-}
-.flex-item{
-    flex-grow: 1;
-}
-
-
-.box {
-    height: auto;
-}
-.row {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 5px
-}
-.cell {
-    flex: 1 1 45vw;
-}
-
 sectionx {
     display: flex;
     flex-direction: row;
@@ -33,4 +7,29 @@ articlex {
 }
 articlex:nth-of-type(1) {
     flex: 2 100px;
+}
+
+/* Grid Panel */
+.grid-panel {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+    background: #ffffff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.grid-cell {
+    width: 80px;
+    height: 80px;
+    background: #e2e8f0;
+    border: 2px solid #94a3b8;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: #475569;
+    transition: background 0.2s ease;
 }
