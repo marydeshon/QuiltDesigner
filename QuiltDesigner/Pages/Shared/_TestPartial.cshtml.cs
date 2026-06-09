@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace QuiltDesigner.Pages;
+namespace QuiltDesigner.Pages.Shared;
 
-public class Test : PageModel
+public class _TestPartial : PageModel
 {
     public void OnGet()
     {

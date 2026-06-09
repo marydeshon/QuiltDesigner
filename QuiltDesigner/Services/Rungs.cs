@@ -6,10 +6,7 @@ public class Rungs : IPatternSevice
 {
     public List<Shape> GetAll()
     {
-        List<Shape> shapes = new List<Shape>()
-        {
-
-        };
+        List<Shape> shapes = new List<Shape>();
         double scale = 20;
         double one = scale * 1;
         double one_pt_five = scale * 1.5;

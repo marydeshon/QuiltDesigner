@@ -4,9 +4,9 @@ using QuiltDesigner.Services;
 
 namespace QuiltDesigner.Pages;
 
-public class Winchester(
+public class Flag(
     IWebHostEnvironment environment,
-    [FromKeyedServices("winchester")] IPatternSevice patternService,
+    [FromKeyedServices("flag")] IPatternSevice patternService,
     ISwatchService swatchService)
     : PageModel
 {

@@ -7,10 +7,7 @@ public class Winchester : IPatternSevice
     int Ln = 100;
     public List<Shape> GetAll()
     {
-        List<Shape> shapes = new List<Shape>()
-        {
-
-        };
+        List<Shape> shapes = new List<Shape>();
         
         string[][] darks = [
             ["#000000", "#ffffff", "#ffffff", "#000000", "#000000", "#ffffff"],

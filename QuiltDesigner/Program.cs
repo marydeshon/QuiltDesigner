@@ -14,6 +14,7 @@ public class Program
         builder.Services.AddTransient<ISwatchService, SwatchService>();
         builder.Services.AddKeyedTransient<IPatternSevice, Winchester>("winchester");
         builder.Services.AddKeyedTransient<IPatternSevice, Rungs>("rungs");
+        builder.Services.AddKeyedTransient<IPatternSevice, Flag>("flag");
 
         var app = builder.Build();
 

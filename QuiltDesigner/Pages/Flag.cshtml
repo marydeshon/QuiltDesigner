@@ -1,0 +1,22 @@
+@page "/Flag"
+@model QuiltDesigner.Pages.Flag
+
+<partial name = "_TestPartial" model='(@Model.Swatchfilepath, @Model.Swatchfilenames, @Model.Shapes, @Model.Swatches)' />
+    
+@section scripts {
+    <script type="text/javascript">
+        var currpat = "lgt3.jpg";
+    </script>
+    
+    <script type="text/javascript">
+        $(document).ready(function () {
+            window.addEventListener("mouseup", (e) => {
+                if (e.target.id.startsWith("lgt") || e.target.id.startsWith("drk") )
+                {
+                    currpat = e.target.id;
+                }
+                e.target.style.fill = "url(#" + currpat + ")";
+            });
+        });
+    </script>
+}
