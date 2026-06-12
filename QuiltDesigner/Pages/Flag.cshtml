@@ -11,7 +11,8 @@
     <script type="text/javascript">
         $(document).ready(function () {
             window.addEventListener("mouseup", (e) => {
-                if (e.target.id.startsWith("lgt") || e.target.id.startsWith("drk") )
+                if (e.target.id.startsWith("lgt") || e.target.id.startsWith("drk") || 
+                    e.target.id.startsWith("white") || e.target.id.startsWith("steel"))
                 {
                     currpat = e.target.id;
                 }

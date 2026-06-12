@@ -83,6 +83,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="wwwroot\images\flag_swatches\" />
       <Folder Include="wwwroot\images\swatches2\" />
       <Folder Include="wwwroot\images\swatches3\" />
     </ItemGroup>
