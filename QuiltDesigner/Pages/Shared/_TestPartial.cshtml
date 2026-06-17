@@ -11,18 +11,18 @@
                     </pattern>
                 }
             </defs>
-            @foreach (var tri in Model.Shapes)
+            @foreach (var shape in Model.Shapes)
             {
-                <polygon points="@String.Join(" ", tri.Points)" fill="@tri.Color"/>
+                <polygon points="@String.Join(" ", shape.Points)" fill="@shape.Color"/>
             }
         </svg>
     </articlex>
     <articlex>
         <!-- CSS Grid -->
-        <div class="grid-panel">
+        <div class="gallery">
             @foreach (var swatch in Model.Swatches)
             {
-                <img id="@swatch.ImageName" src="@(Model.Swatchfilepath + swatch.ImageName)" class="grid-cell"/>
+                <img id="@swatch.ImageName" src="@(Model.Swatchfilepath + swatch.ImageName)" />
             }
         </div>
     </articlex>
